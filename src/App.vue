@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <RoverNav />
+    <div class="container">
+
+        <div class="row">
+            <RoverSideBar />
+            <RoverMainContainer />
+        </div>
+    </div>
+    <RoverFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import RoverNav           from './components/RoverNav.vue'
+import RoverSideBar       from './components/RoverSideBar.vue'
+import RoverMainContainer from './components/RoverMainContainer.vue'
+import RoverFooter        from './components/RoverFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    RoverNav,
+    RoverSideBar,
+    RoverMainContainer,
+    RoverFooter
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  padding-top: 56px;
 }
+
 </style>
