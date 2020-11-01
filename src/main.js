@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -15,8 +15,6 @@ import '@/assets/css/theme.css';
 
 
 import App from './App.vue'
-Vue.use(VueRouter)
-
 
 
 Vue.config.productionTip = false
