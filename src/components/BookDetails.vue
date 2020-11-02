@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pb-2">
     <div class="py-4">
       <h1>{{book.title}}</h1>
     </div>
@@ -29,7 +29,7 @@
   const BOOKS_API_ENDPOINT = 'http://localhost:3000/books/'
 
   export default {
-    name: 'Home',
+    name: 'BookDetails',
     data: () => ({
       book: {},
     }),
