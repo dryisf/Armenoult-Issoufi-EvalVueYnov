@@ -1,9 +1,6 @@
 <template>
   <div>
     <div>
-      <h1 class="py-4">Les genres</h1>
-    </div>
-    <div>
       <div class="card p-2">
         <div v-for="(genre, idx) in genres" :key="idx" class="card py-3 px-2">
           {{genre.label}} : {{ genres_books[genre.id] }} livres de ce genre

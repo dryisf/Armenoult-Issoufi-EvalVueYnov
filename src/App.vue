@@ -5,7 +5,7 @@
       <!-- PAGE CONTENT-->
       <div class="page-content--bgf7">
         <!-- WELCOME-->
-
+        <SectionHeader />
         <!-- END WELCOME-->
 
         <!-- Content -->
@@ -20,9 +20,11 @@
 
 <script>
 import Navbar from "./components/Navbar";
+import SectionHeader from "./components/SectionHeader";
 export default {
   name: "App",
   components: {
+    SectionHeader,
     Navbar,
   },
 };

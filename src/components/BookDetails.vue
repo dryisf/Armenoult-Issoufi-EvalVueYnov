@@ -1,9 +1,9 @@
 <template>
-  <div class="pb-2">
+  <div>
     <div class="py-4">
       <h1>{{book.title}}</h1>
     </div>
-    <div class="card p-4">
+    <div class="card p-4 mb-4">
       <div class="media">
         <img width=160 class="align-self-start mr-3" :src="book.coverUri" alt="Generic placeholder image">
         <div class="media-body">

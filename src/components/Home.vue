@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div>
-      <h1 class="p-3">Mes livres</h1>
-    </div>
+
 
     <div class="row pb-4">
       <div class="col-lg-3">
