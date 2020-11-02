@@ -1,5 +1,7 @@
 # vue_rover
 
+### Note ❗ : Le filtre sur la page d'accueil n'est pas actif directement, mais il faut passer l'URL à la place, par exemple : http://localhost:8080/#/home?genre=2
+
 ## Project setup
 ```
 npm install

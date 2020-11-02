@@ -7,9 +7,8 @@
     <div class="row pb-4">
       <div class="col-lg-3">
         <div class="list-group">
-          <a href="#" class="list-group-item active">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <a v-for="genre in genres" :class="genre_filter_id == genre.id ? 'active' : ''" :key="genre.id"
+            @click="goToSortUri(genre.id)" href="#" class="list-group-item">{{genre.label}}</a>
         </div>
       </div>
       <div class="col-lg-9">
@@ -40,15 +39,32 @@
 
   const BOOKS_API_ENDPOINT = 'http://localhost:3000/books'
 
+  const BOOKS_GENRE_API_ENDPOINT = 'http://localhost:3000/books?genre.id='
+
+  const GENRES_API_ENDPOINT = 'http://localhost:3000/genres'
+
   export default {
     name: 'Home',
     data: () => ({
       books: [],
+      genres: [],
+      genre_filter_id: false,
     }),
     methods: {
       async fetchAllBooks() {
-        let allBooks = await axios.get(BOOKS_API_ENDPOINT)
-        this.books = allBooks.data
+        if (this.$route.query && this.$route.query.genre) {
+          let sortedBooks = await axios.get(`${BOOKS_GENRE_API_ENDPOINT}${this.$route.query.genre}`)
+          this.books = sortedBooks.data
+          this.genre_filter_id = this.$route.query.genre
+        } else {
+          let allBooks = await axios.get(BOOKS_API_ENDPOINT)
+          this.books = allBooks.data
+        }
+
+      },
+      async fetchAllGenres() {
+        let allGenres = await axios.get(GENRES_API_ENDPOINT)
+        this.genres = allGenres.data
       },
       goToBookDetails(bookId) {
         this.$router.push({
@@ -57,10 +73,14 @@
             bookId
           }
         })
+      },
+      goToSortUri(genreId) {
+        this.$router.push({query: {genre: genreId}})
       }
     },
     async created() {
       await this.fetchAllBooks()
+      await this.fetchAllGenres()
     }
   };
 </script>

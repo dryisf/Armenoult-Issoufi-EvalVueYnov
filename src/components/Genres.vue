@@ -33,11 +33,14 @@
         this.genres.forEach(genre => {
           this.countGenreBooks(genre.id)
         });
+        
       },
       async countGenreBooks(genreId) {
         let sortedBooks = await axios.get(`${BOOKS_GENRE_API_ENDPOINT}${genreId}`)
         let totalBooks = sortedBooks.data.length
         this.genres_books[genreId] = totalBooks
+        //Sinon le total ne s'affichait pas
+        this.$forceUpdate()
       }
     },
     async created() {
