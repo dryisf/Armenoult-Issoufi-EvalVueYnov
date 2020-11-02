@@ -11,6 +11,10 @@ const router = new Router({
       component: () => import("../components/Home.vue"),
     },
     {
+      path: "/books",
+      redirect: "/home",
+    },
+    {
       path: "/books/:bookId",
       name: "bookDetails",
       component: () => import("../components/BookDetails.vue"),
